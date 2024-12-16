@@ -1,5 +1,5 @@
 ---
-title: "kabuki_single_cellRNAseq_packages_used"
+title: "librariers_used_for_kbk_project"
 author: "Prasad Padmanabhan"
 date: "2024-12-16"
 output: html_document
@@ -7,10 +7,79 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+renv::init()
+```
+```{r}
+sessionInfo()
+
 
 ```
 
 ```{r}
+version
+```
+
+```{r}
+#renv::init()
+
+#renv::restore()
+```
+
+```{r}
+
+#rownames(installed.packages())
+
+#installed.packages()
+```
+
+
+```{r}
+packages_df<-data.frame(installed.packages())
+
+#packages_df
+
+names(packages_df)
+
+ packages_df<-packages_df[,c("Package","Version")]
+ 
+ rownames(packages_df)<-NULL
+ packages_df
 
 ```
+
+# To programmatically view the packages in the lockfile:
+
+```{r}
+# lockfile <- renv::dependencies()
+# lockfile
+```
+
+
+# To check the synchronization status and get a summary of the packages in the project:
+```{r}
+
+renv::status()
+```
+
+
+# Retrieve All Dependencies
+```{r}
+
+#To see all the packages (both direct and indirect dependencies) required by your project:
+
+
+#renv::dependencies()
+
+```
+
+
+# Retrieve Packages Managed by renv
+#To specifically retrieve information about packages installed by renv:
+
+
+
+
 
